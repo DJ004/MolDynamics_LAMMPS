@@ -106,7 +106,7 @@ def main():
 
     try:
         rows = extract_atoms(source)
-        destination = source.with_suffix(".xyz")
+        destination = Path.cwd() / source.stem + ".xyz"
         with destination.open("w", encoding="utf-8") as handle:
             handle.write(f"{len(rows)}\nFrame 0\n")
             for _, x, y, z in rows:
